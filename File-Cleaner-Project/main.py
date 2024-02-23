@@ -21,10 +21,11 @@ for file in desktopFiles:
 
         if not os.path.exists(newDirPath):
             create_directory_in_desktop(newDir)
+        #If the file already exists move it to the suggested_delete folder
         if (os.path.exists(os.path.join(newDirPath, file))):
-            delete = os.path.join(DESKTOPPATH, 'other/delete')
+            deletePath = os.path.join(DESKTOPPATH, 'other/suggested_delete')
             renameDuplicates(newFilePath)
-            shutil.move(newFilePath, delete)
+            shutil.move(newFilePath, deletePath)
         else:
             shutil.move(newFilePath, newDirPath)
     
