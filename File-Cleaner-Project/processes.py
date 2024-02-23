@@ -59,8 +59,8 @@ def find_files_in_downloads():
     return download_files
 
 def renameDuplicates(path):
-    delete = os.path.join(DESKTOPPATH, 'other/delete')
-    os.path.join(path, delete)
+    deletePath = os.path.join(DESKTOPPATH, 'other/suggested_delete')
+    os.path.join(path, deletePath)
  
     stem = path.stem
     suffix = path.suffix
@@ -71,7 +71,7 @@ def renameDuplicates(path):
     while newPath.exists():
         new_name = f"{stem} ({counter}){suffix}"
         os.rename(path, new_name)
-        newPath = os.path.join(delete, new_name)
+        newPath = os.path.join(deletePath, new_name)
         counter += 1
 
 
